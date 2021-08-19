@@ -1,0 +1,9 @@
+<div class="app-main">
+  <div class="top-navigation">
+    <app-top-navigation></app-top-navigation>
+  </div>
+  <div class="app-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-loader *ngIf="this.LoaderStatus$ | async"></app-loader>

@@ -1,0 +1,35 @@
+<div class="d-flex flex-wrap justify-content-center">
+  <div *ngFor="let item of Products$ | async" class="product-box">
+    <div class="product-box-container">
+      <h2>{{ item.name }}</h2>
+      <p><strong>Features</strong></p>
+      <ul class="product-list product-features-list">
+        <li *ngFor="let feature of item.features">
+          {{ feature }}
+        </li>
+      </ul>
+      <div class="d-flex justify-content-center">
+        <button (click)="viewProductDetail(item)">View Details</button>
+        <button *ngIf="!item.subscribed" (click)="subscribeProduct(item)">Subscribe</button>
+        <button  *ngIf="item.subscribed" (click)="subscribeProduct(item)">Cancel</button>
+      </div>
+      <p><strong>Plans</strong></p>
+      <ul class="product-list">
+        <li *ngFor="let plan of item.plans">
+          <div class="d-flex justify-content-between">
+            <span><strong>Pricing: </strong></span>
+            <span>{{ plan.priceCents / 100 }}{{ plan.currency }}</span>
+          </div>
+          <div class="d-flex justify-content-between" *ngIf="plan.interval">
+            <span><strong>Interval: </strong></span>
+            <span>{{ plan.interval }}</span>
+          </div>
+          <div class="d-flex justify-content-between" *ngIf="plan.paymentInterval">
+            <span><strong>Payment Interval: </strong></span>
+            <span>{{ plan.paymentInterval }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="light-box-main">
+  <h2>{{ product.name }}</h2>
+  <p><strong>Features</strong></p>
+  <ul class="product-list">
+    <li *ngFor="let feature of product.features">
+      {{ feature }}
+    </li>
+  </ul>
+  <p><strong>Plans</strong></p>
+  <ul class="product-list">
+    <li *ngFor="let plan of product.plans">
+      <div>
+        <span><strong>Pricing: </strong></span>
+        <span>{{ plan.priceCents / 100 }}{{ plan.currency }}</span>
+      </div>
+      <div *ngIf="plan.interval">
+        <span><strong>Interval: </strong></span>
+        <span>{{ plan.interval }}</span>
+      </div>
+      <div *ngIf="plan.paymentInterval">
+        <span><strong>Payment Interval: </strong></span>
+        <span>{{ plan.paymentInterval }}</span>
+      </div>
+    </li>
+  </ul>
+</div>

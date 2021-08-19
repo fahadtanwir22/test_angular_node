@@ -1,0 +1,39 @@
+.loading {
+  height: 0;
+  width: 0;
+  padding: 15px;
+  border: 6px solid #ccc;
+  border-right-color: #002663;
+  border-radius: 22px;
+  -webkit-animation: rotate 1s infinite linear;
+  animation: rotate 1s infinite linear;
+  /* left, top and position just for the demo! */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+  top: 0px;
+  left: 0px;
+}
+
+@-webkit-keyframes rotate {
+  /* 100% keyframe for  clockwise.
+     use 0% instead for anticlockwise */
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  /* 100% keyframe for  clockwise.
+     use 0% instead for anticlockwise */
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
